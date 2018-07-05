@@ -1,0 +1,298 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> using expression grel:value.replace('<item name=\"- ','')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?>",
+    "expression": "grel:value.replace('<item name=\"- ','')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> using expression grel:value.replace('</item>','')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?>",
+    "expression": "grel:value.replace('</item>','')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> using expression grel:value.replace(' \">','')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?>",
+    "expression": "grel:value.replace(' \">','')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?>",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ":",
+    "regex": false,
+    "maxColumns": 2
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 using expression grel:\"0h \" + value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Duration",
+                "l": "Duration"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1"
+        },
+        {
+          "mode": "text",
+          "invert": true,
+          "caseSensitive": false,
+          "query": "h",
+          "name": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2",
+          "type": "text",
+          "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2"
+        }
+      ]
+    },
+    "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2",
+    "expression": "grel:\"0h \" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 using expression grel:value + \" 0s\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Duration",
+                "l": "Duration"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1"
+        },
+        {
+          "mode": "text",
+          "invert": true,
+          "caseSensitive": false,
+          "query": "s",
+          "name": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2",
+          "type": "text",
+          "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2"
+        }
+      ]
+    },
+    "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2",
+    "expression": "grel:value + \" 0s\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Duration",
+                "l": "Duration"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1"
+        }
+      ]
+    },
+    "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": " ",
+    "regex": false,
+    "maxColumns": 3
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 1 to Hours",
+    "oldColumnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 1",
+    "newColumnName": "Hours"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 2 to DurationMinutes",
+    "oldColumnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 2",
+    "newColumnName": "DurationMinutes"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Hours to DurationHours",
+    "oldColumnName": "Hours",
+    "newColumnName": "DurationHours"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column <?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 3 to DurationSeconds",
+    "oldColumnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 2 3",
+    "newColumnName": "DurationSeconds"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column DurationHours using expression grel:value.replace('h','')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Duration",
+                "l": "Duration"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1"
+        }
+      ]
+    },
+    "columnName": "DurationHours",
+    "expression": "grel:value.replace('h','')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column DurationMinutes using expression grel:value.replace('mn','')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Duration",
+                "l": "Duration"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1"
+        }
+      ]
+    },
+    "columnName": "DurationMinutes",
+    "expression": "grel:value.replace('mn','')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column DurationSeconds using expression grel:value.replace('s','')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Duration",
+                "l": "Duration"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> 1"
+        }
+      ]
+    },
+    "columnName": "DurationSeconds",
+    "expression": "grel:value.replace('s','')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]
